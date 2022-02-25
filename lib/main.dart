@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
+import 'package:medbuddy/onboarding.dart';
 
 void main() {
   runApp(const MyApp());
@@ -10,8 +13,13 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual, overlays: []);
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.portraitUp,
+      DeviceOrientation.portraitDown,
+    ]);
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'MedBuddy',
       theme: ThemeData(
         // This is the theme of your application.
         //
@@ -24,7 +32,14 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: const MyHomePage(title: 'MedBuddy'),
+      builder: EasyLoading.init(),
+      initialRoute: '/onboarding',
+      routes: {
+        // '/': (context) => LoginPage(),
+        '/home': (context) => const MyHomePage(title: 'MedBuddy'),
+        '/onboarding': (context) => OnboardingPage(),
+      },
     );
   }
 }
