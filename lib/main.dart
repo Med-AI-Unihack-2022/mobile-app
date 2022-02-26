@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
+import 'package:medbuddy/dashboard.dart';
 import 'package:medbuddy/home.dart';
 import 'package:medbuddy/onboarding.dart';
 
@@ -33,12 +34,14 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
+      debugShowCheckedModeBanner: false,
       builder: EasyLoading.init(),
-      initialRoute: '/home',
+      initialRoute: '/dashboard',
       routes: {
         // '/': (context) => LoginPage(),
         '/home': (context) => const Home(),
         '/onboarding': (context) => OnboardingPage(),
+        '/dashboard': (context) => Dashboard(),
       },
     );
   }
