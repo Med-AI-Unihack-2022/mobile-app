@@ -1,6 +1,8 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:medbuddy/navbar.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class OnboardingPage extends StatefulWidget {
   OnboardingPage({Key? key}) : super(key: key);
@@ -8,6 +10,8 @@ class OnboardingPage extends StatefulWidget {
   @override
   State<OnboardingPage> createState() => _OnboardingPageState();
 }
+
+GlobalKey<ScaffoldState> _key = GlobalKey();
 
 final fNameController = TextEditingController();
 final lNameController = TextEditingController();
@@ -20,6 +24,34 @@ bool alcohol = false;
 bool physicalActivity = false;
 
 class _OnboardingPageState extends State<OnboardingPage> {
+  void updateDataToSharedPrefs() {
+    SharedPreferences.getInstance().then((prefs) {
+      prefs.setString('fName', fNameController.text);
+      prefs.setString('lName', lNameController.text);
+      prefs.setString('age', ageController.text);
+      prefs.setString('height', heightController.text);
+      prefs.setString('weight', weightController.text);
+      prefs.setBool('smoking', smoking);
+      prefs.setBool('alcohol', alcohol);
+      prefs.setBool('physicalActivity', physicalActivity);
+    });
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    SharedPreferences.getInstance().then((prefs) {
+      fNameController.text = prefs.getString('fName') ?? '';
+      lNameController.text = prefs.getString('lName') ?? '';
+      ageController.text = prefs.getString('age') ?? '';
+      heightController.text = prefs.getString('height') ?? '';
+      weightController.text = prefs.getString('weight') ?? '';
+      smoking = prefs.getBool('smoking') ?? false;
+      alcohol = prefs.getBool('alcohol') ?? false;
+      physicalActivity = prefs.getBool('physicalActivity') ?? false;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     const logo = Image(
@@ -197,24 +229,30 @@ class _OnboardingPageState extends State<OnboardingPage> {
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(10),
         ),
-        onPressed: () {},
+        onPressed: () {
+          updateDataToSharedPrefs();
+        },
         padding: EdgeInsets.all(12),
         color: Colors.black,
-        child: Text('Continue',
-            style: TextStyle(color: Colors.white, fontSize: 18)),
+        child:
+            Text('Update', style: TextStyle(color: Colors.white, fontSize: 18)),
       ),
     );
 
     return Scaffold(
       // extendBodyBehindAppBar: true,
+      key: _key,
+      drawer: const NavDrawer(),
       appBar: AppBar(
-        title: const Text('Please fill in this form below',
+        title: const Text('Personal Information',
             style: TextStyle(color: Colors.black)),
         backgroundColor: Colors.white,
         // elevation: 0,
         leading: IconButton(
-          onPressed: () {},
-          icon: const Icon(Icons.arrow_back, color: Colors.black),
+          onPressed: () {
+            _key.currentState?.openDrawer();
+          },
+          icon: const Icon(Icons.menu, color: Colors.black),
         ),
       ),
       body: Center(

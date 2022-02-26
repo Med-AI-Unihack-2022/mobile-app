@@ -185,66 +185,66 @@ class _DashboardState extends State<Dashboard> {
               // width: 200.0,
             ),
             Container(
-              padding: EdgeInsets.all(15.0),
-              child: new Row(
+              padding: const EdgeInsets.all(15.0),
+              child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  new CircularPercentIndicator(
+                  CircularPercentIndicator(
                     radius: 45.0,
                     lineWidth: 4.0,
                     percent: 0.10,
-                    center: new Text("10%"),
+                    center: const Text("10%"),
                     progressColor: Colors.red,
                   ),
-                  new Padding(
+                  const Padding(
                     padding: EdgeInsets.symmetric(horizontal: 10.0),
                   ),
-                  new CircularPercentIndicator(
+                  CircularPercentIndicator(
                     radius: 45.0,
                     lineWidth: 4.0,
                     percent: 0.30,
-                    center: new Text("30%"),
+                    center: const Text("30%"),
                     progressColor: Colors.orange,
                   ),
-                  new Padding(
+                  const Padding(
                     padding: EdgeInsets.symmetric(horizontal: 10.0),
                   ),
-                  new CircularPercentIndicator(
+                  CircularPercentIndicator(
                     radius: 45.0,
                     lineWidth: 4.0,
                     percent: 0.60,
-                    center: new Text("60%"),
+                    center: const Text("60%"),
                     progressColor: Colors.yellow,
                   ),
-                  new Padding(
+                  const Padding(
                     padding: EdgeInsets.symmetric(horizontal: 10.0),
                   ),
-                  new CircularPercentIndicator(
+                  CircularPercentIndicator(
                     radius: 45.0,
                     lineWidth: 4.0,
                     percent: 0.90,
-                    center: new Text("90%"),
+                    center: const Text("90%"),
                     progressColor: Colors.green,
                   )
                 ],
               ),
             ),
-            Text("Mood Inicator",
+            const Text("Mood Indicator",
                 style: TextStyle(
                   fontSize: 20.0,
                   fontWeight: FontWeight.bold,
                 )),
             Padding(
-              padding: EdgeInsets.all(15.0),
-              child: new LinearPercentIndicator(
+              padding: const EdgeInsets.all(15.0),
+              child: LinearPercentIndicator(
                 width: 140.0,
                 lineHeight: 14.0,
                 percent: 0.5,
-                center: Text(
+                center: const Text(
                   "50.0%",
-                  style: new TextStyle(fontSize: 12.0),
+                  style: TextStyle(fontSize: 12.0),
                 ),
-                trailing: Icon(Icons.mood),
+                trailing: const Icon(Icons.mood),
                 linearStrokeCap: LinearStrokeCap.roundAll,
                 backgroundColor: Colors.grey,
                 progressColor: Colors.blue,

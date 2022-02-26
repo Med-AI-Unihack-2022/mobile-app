@@ -14,10 +14,10 @@ class NavDrawer extends StatelessWidget {
   void logout(BuildContext context) async {
     EasyLoading.show(status: 'Logging out...');
     SharedPreferences prefs = await SharedPreferences.getInstance();
+    prefs.clear();
     Navigator.of(context).pop();
     Future.delayed(const Duration(seconds: 2), () {
       EasyLoading.dismiss();
-      prefs.clear();
       SystemNavigator.pop();
     });
   }
@@ -42,50 +42,54 @@ class NavDrawer extends StatelessWidget {
             ),
           ),
           ListTile(
-            leading: Icon(Icons.home),
-            title: Text('Dashboard'),
+            leading: const Icon(Icons.home),
+            title: const Text('Dashboard'),
             onTap: () => {
+              Navigator.of(context).pop(),
               Navigator.push(
                   context, MaterialPageRoute(builder: (context) => Dashboard()))
             },
           ),
           ListTile(
-            leading: Icon(Icons.book),
-            title: Text('Medical Records'),
+            leading: const Icon(Icons.book),
+            title: const Text('Medical Records'),
             onTap: () => {
+              Navigator.of(context).pop(),
               Navigator.push(context,
                   MaterialPageRoute(builder: (context) => MedicalRecords()))
             },
           ),
           ListTile(
-            leading: Icon(Icons.border_color),
-            title: Text('Prescriptions'),
+            leading: const Icon(Icons.border_color),
+            title: const Text('Prescriptions'),
             onTap: () => {Navigator.of(context).pop()},
           ),
           ListTile(
-            leading: Icon(Icons.qr_code),
-            title: Text('Scan QR Code'),
+            leading: const Icon(Icons.qr_code),
+            title: const Text('Scan QR Code'),
             onTap: () => {
+              Navigator.of(context).pop(),
               Navigator.push(context,
                   MaterialPageRoute(builder: (context) => QRCodePage()))
             },
           ),
           ListTile(
-            leading: Icon(Icons.input),
-            title: Text('Import/Export Medical Record'),
+            leading: const Icon(Icons.input),
+            title: const Text('Import/Export Medical Record'),
             onTap: () => {},
           ),
           ListTile(
-            leading: Icon(Icons.settings),
-            title: Text('Settings'),
+            leading: const Icon(Icons.person),
+            title: const Text('Profile'),
             onTap: () => {
+              Navigator.of(context).pop(),
               Navigator.push(context,
                   MaterialPageRoute(builder: (context) => OnboardingPage()))
             },
           ),
           ListTile(
-            leading: Icon(Icons.logout),
-            title: Text('Logout'),
+            leading: const Icon(Icons.logout),
+            title: const Text('Logout'),
             onTap: () => {logout(context)},
           ),
         ],

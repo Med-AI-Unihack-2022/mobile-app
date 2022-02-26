@@ -10,7 +10,8 @@ class StateCheck extends StatefulWidget {
 
 void checkLogin(BuildContext context) async {
   SharedPreferences prefs = await SharedPreferences.getInstance();
-  bool isLoggedIn = prefs.getString("authentication_token") != "";
+  print(prefs.getString('auth_token'));
+  bool isLoggedIn = prefs.getString("auth_token") != null;
   if (isLoggedIn) {
     Navigator.pushReplacementNamed(context, '/dashboard');
   } else {
