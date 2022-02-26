@@ -1,7 +1,13 @@
 // ignore_for_file: deprecated_member_use
 
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
+import 'package:medbuddy/dashboard.dart';
 import 'sign_up.dart';
+import 'package:http/http.dart' as http;
+import 'package:shared_preferences/shared_preferences.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -14,6 +20,65 @@ final usernameController = TextEditingController();
 final passwordController = TextEditingController();
 
 class _HomeState extends State<Home> {
+  void signIN() async {
+    var username = usernameController.text.toString().replaceAll(" ", "");
+    var password = passwordController.text.toString().replaceAll(" ", "");
+    EasyLoading.show(status: 'Loading...');
+    if (username == "" || password == "") {
+      EasyLoading.dismiss();
+      showDialog(
+          context: context,
+          builder: (BuildContext context) {
+            return AlertDialog(
+              title: Text("Error"),
+              content: Text("Please fill all the fields"),
+              actions: <Widget>[
+                FlatButton(
+                  child: Text("OK"),
+                  onPressed: () {
+                    Navigator.of(context).pop();
+                  },
+                )
+              ],
+            );
+          });
+    } else {
+      var response = await http.post(Uri.parse(
+          "http://119.91.29.100:8000/patients/signin?username=$username&password=$password"));
+      var jsonData = json.decode(response.body);
+      try {
+        var test = jsonData["authentication_token"];
+      } catch (e) {
+        print(e);
+        EasyLoading.dismiss();
+        showDialog(
+            context: context,
+            builder: (BuildContext context) {
+              return AlertDialog(
+                title: Text("Error"),
+                content: Text("Invalid username or password"),
+                actions: <Widget>[
+                  FlatButton(
+                    child: Text("OK"),
+                    onPressed: () {
+                      Navigator.of(context).pop();
+                    },
+                  )
+                ],
+              );
+            });
+      }
+      final prefs = await SharedPreferences.getInstance();
+      print(jsonData["authentication_token"]);
+      await prefs.setString('auth_token', jsonData["authentication_token"]);
+
+      EasyLoading.dismiss();
+      Navigator.pushReplacement(
+          context, MaterialPageRoute(builder: (context) => Dashboard()));
+    }
+    EasyLoading.dismiss();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -39,6 +104,9 @@ class _HomeState extends State<Home> {
             const SizedBox(height: 20),
             TextField(
               controller: passwordController,
+              obscureText: true,
+              enableSuggestions: false,
+              autocorrect: false,
               keyboardType: TextInputType.text,
               autofocus: false,
               decoration: InputDecoration(
@@ -55,7 +123,9 @@ class _HomeState extends State<Home> {
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(10),
                 ),
-                onPressed: () {},
+                onPressed: () {
+                  signIN();
+                },
                 padding: const EdgeInsets.all(12),
                 color: Colors.black,
                 child: const Text('Sign In',

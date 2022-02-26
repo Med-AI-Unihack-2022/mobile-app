@@ -12,7 +12,7 @@ class Dashboard extends StatefulWidget {
 GlobalKey<ScaffoldState> _key = GlobalKey();
 
 var _isLoading = false;
-var name = "Unihack";
+var name = "Tony";
 
 class _DashboardState extends State<Dashboard> {
   var welcomeTitle = Row(
@@ -64,7 +64,7 @@ class _DashboardState extends State<Dashboard> {
               progressColor: Colors.green,
             ),
             const SizedBox(
-              width: 20.0,
+              width: 10.0,
             ),
             Expanded(
               child: Container(
@@ -75,7 +75,7 @@ class _DashboardState extends State<Dashboard> {
                   )),
             ),
             const SizedBox(
-              width: 20.0,
+              width: 15.0,
             ),
             Column(
               mainAxisAlignment: MainAxisAlignment.start,
@@ -84,7 +84,7 @@ class _DashboardState extends State<Dashboard> {
                 Text(
                   "Heart Rate: 80 bpm",
                   style: TextStyle(
-                    fontSize: 14.0,
+                    fontSize: 13.0,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
@@ -94,7 +94,7 @@ class _DashboardState extends State<Dashboard> {
                 Text(
                   "Calories lost: 220 cal",
                   style: TextStyle(
-                    fontSize: 14.0,
+                    fontSize: 13.0,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
@@ -104,7 +104,7 @@ class _DashboardState extends State<Dashboard> {
                 Text(
                   "Blood Pressure: 120/80",
                   style: TextStyle(
-                    fontSize: 14.0,
+                    fontSize: 13.0,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
@@ -166,7 +166,7 @@ class _DashboardState extends State<Dashboard> {
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                SizedBox(width: 100.0),
+                SizedBox(width: 80.0),
                 Text(
                   "Statistics",
                   style: TextStyle(
@@ -178,6 +178,78 @@ class _DashboardState extends State<Dashboard> {
             ),
             const SizedBox(height: 20.0),
             progressAndStatistics,
+            const SizedBox(height: 20.0),
+            Image.asset(
+              "assets/graph.png",
+              // height: 200.0,
+              // width: 200.0,
+            ),
+            Container(
+              padding: EdgeInsets.all(15.0),
+              child: new Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  new CircularPercentIndicator(
+                    radius: 45.0,
+                    lineWidth: 4.0,
+                    percent: 0.10,
+                    center: new Text("10%"),
+                    progressColor: Colors.red,
+                  ),
+                  new Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 10.0),
+                  ),
+                  new CircularPercentIndicator(
+                    radius: 45.0,
+                    lineWidth: 4.0,
+                    percent: 0.30,
+                    center: new Text("30%"),
+                    progressColor: Colors.orange,
+                  ),
+                  new Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 10.0),
+                  ),
+                  new CircularPercentIndicator(
+                    radius: 45.0,
+                    lineWidth: 4.0,
+                    percent: 0.60,
+                    center: new Text("60%"),
+                    progressColor: Colors.yellow,
+                  ),
+                  new Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 10.0),
+                  ),
+                  new CircularPercentIndicator(
+                    radius: 45.0,
+                    lineWidth: 4.0,
+                    percent: 0.90,
+                    center: new Text("90%"),
+                    progressColor: Colors.green,
+                  )
+                ],
+              ),
+            ),
+            Text("Mood Inicator",
+                style: TextStyle(
+                  fontSize: 20.0,
+                  fontWeight: FontWeight.bold,
+                )),
+            Padding(
+              padding: EdgeInsets.all(15.0),
+              child: new LinearPercentIndicator(
+                width: 140.0,
+                lineHeight: 14.0,
+                percent: 0.5,
+                center: Text(
+                  "50.0%",
+                  style: new TextStyle(fontSize: 12.0),
+                ),
+                trailing: Icon(Icons.mood),
+                linearStrokeCap: LinearStrokeCap.roundAll,
+                backgroundColor: Colors.grey,
+                progressColor: Colors.blue,
+              ),
+            ),
           ],
         ),
       ),

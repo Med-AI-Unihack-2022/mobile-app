@@ -15,88 +15,86 @@ class SignUp extends StatefulWidget {
 class _SignUpState extends State<SignUp> {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(
-          title: Title(
-            color: Colors.red,
-            child: const Text("Sign Up"),
-          ),
-          leading: IconButton(
-            icon: Icon(Icons.arrow_back),
-            onPressed: () => Navigator.pop(context),
-          ),
+    return Scaffold(
+      appBar: AppBar(
+        title: Title(
+          color: Colors.red,
+          child: const Text("Sign Up"),
         ),
-        body: Center(
-          child: SingleChildScrollView(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                //Google sign-up button
-                SizedBox(
-                  child: ElevatedButton(
-                    onPressed: () {},
-                    child: const Text("Sign up with Google"),
-                  ),
-                  width: 300,
-                  height: 50,
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back),
+          onPressed: () => Navigator.pop(context),
+        ),
+      ),
+      body: Center(
+        child: SingleChildScrollView(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              //Google sign-up button
+              SizedBox(
+                child: ElevatedButton(
+                  onPressed: () {},
+                  child: const Text("Sign up with Google"),
                 ),
-                const SizedBox(height: 15),
-                const Text("Or"),
-                const SizedBox(height: 15),
+                width: 300,
+                height: 50,
+              ),
+              const SizedBox(height: 15),
+              const Text("Or"),
+              const SizedBox(height: 15),
 
-                //Name field
-                const TextField(
-                  decoration: InputDecoration(
-                    hintText: "Name",
-                    border: OutlineInputBorder(),
-                    contentPadding: EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
-                  ),
+              //Name field
+              const TextField(
+                decoration: InputDecoration(
+                  hintText: "Name",
+                  border: OutlineInputBorder(),
+                  contentPadding: EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
                 ),
-                const SizedBox(height: 15),
+              ),
+              const SizedBox(height: 15),
 
-                //Email field
-                const TextField(
-                  decoration: InputDecoration(
-                    hintText: "Email",
-                    border: OutlineInputBorder(),
-                  ),
+              //Email field
+              const TextField(
+                decoration: InputDecoration(
+                  hintText: "Email",
+                  border: OutlineInputBorder(),
                 ),
-                const SizedBox(height: 15),
+              ),
+              const SizedBox(height: 15),
 
-                //Password field
-                const TextField(
-                  obscureText: true,
-                  decoration: InputDecoration(
-                    hintText: "Password",
-                    border: OutlineInputBorder(),
-                  ),
+              //Password field
+              const TextField(
+                obscureText: true,
+                decoration: InputDecoration(
+                  hintText: "Password",
+                  border: OutlineInputBorder(),
                 ),
-                const SizedBox(height: 15),
+              ),
+              const SizedBox(height: 15),
 
-                //Checkbox
-                Row(
-                  children: [
-                    Checkbox(
-                      value: false,
-                      onChanged: (newVal) {},
-                    ),
-                    const Text("Terms and Condition"),
-                  ],
-                ),
-                const SizedBox(height: 15),
-
-                //Sign up button
-                SizedBox(
-                  child: ElevatedButton(
-                    onPressed: () {},
-                    child: const Text("Sign up"),
+              //Checkbox
+              Row(
+                children: [
+                  Checkbox(
+                    value: false,
+                    onChanged: (newVal) {},
                   ),
-                  width: 300,
-                  height: 50,
+                  const Text("Terms and Condition"),
+                ],
+              ),
+              const SizedBox(height: 15),
+
+              //Sign up button
+              SizedBox(
+                child: ElevatedButton(
+                  onPressed: () {},
+                  child: const Text("Sign up"),
                 ),
-              ],
-            ),
+                width: 300,
+                height: 50,
+              ),
+            ],
           ),
         ),
       ),
