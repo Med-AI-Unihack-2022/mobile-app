@@ -1,0 +1,42 @@
+[
+    {
+        "name": "Vicodin",
+        "image": "https://www.drugs.com/images/pills/mmx/t110691f/vicodin.jpg",
+        "description": "Vicodin is a popular drug for treating acute or chronic moderate to moderately severe pain.",
+        "schedule": "Take 1 pill every 4 hours",
+        "start_date": "2020-01-01",
+        "end_date": "2020-12-31"
+    },
+    {
+        "name": "Albuterol",
+        "image": "https://www.drugs.com/images/pills/mtm/Proventil%20Repetabs%204%20mg.jpg",
+        "description": "Albuterol is a drug used to reduce the amount of airway obstruction in patients with asthma.",
+        "schedule": "Take 1 pill every day",
+        "start_date": "2020-01-01",
+        "end_date": "2020-12-31"
+    },
+    {
+        "name": "Ibuprofen",
+        "image": "https://www.drugs.com/images/pills/fio/LEG05310.JPG",
+        "description": "Ibuprofen is a medication used to treat mild to moderate pain.",
+        "schedule": "Take 1 pill every 4 hours",
+        "start_date": "2020-01-01",
+        "end_date": "2020-12-31"
+    },
+    {
+        "name": "Lisinopril",
+        "image": "https://www.drugs.com/images/pills/fio/LPN05141.JPG",
+        "description": "Lisinopril is a medication used to treat high blood pressure.",
+        "schedule": "Take 1 pill every 4 hours",
+        "start_date": "2020-01-01",
+        "end_date": "2020-12-31"
+    },
+    {
+        "name": "Metformin",
+        "image": "https://www.drugs.com/images/pills/nlm/23155-0102-10_NLMIMAGE10_D93DEC8F.jpg",
+        "description": "Metformin is a medication used to treat low blood sugar.",
+        "schedule": "Take 1 pill every 4 hours",
+        "start_date": "2020-01-01",
+        "end_date": "2020-12-31"
+    }
+]
