@@ -1,0 +1,45 @@
+[
+    {
+        "date": "1/1/20",
+        "time": "12:00",
+        "location": "Adelaide Uni Health Practice, Adelaide, SA 5000",
+        "appointmentType": "General Consultation",
+        "doctor": "Dr. Nick Fury",
+        "checkup": {
+            "systolic": "120",
+            "diastolic": "80",
+            "cholesterol": "Normal",
+            "glucose": "Normal"
+        },
+        "remarks": "The patient is a new patient and has not had any previous medical history. The patient is healthy and has been adviced to take the prescribed medication for the pain and fever.",
+        "files": [],
+        "diagnosis": ""
+    },
+    {
+        "date": "1/5/20",
+        "time": "15:00",
+        "location": "Adelaide Uni Health Practice, Adelaide, SA 5000",
+        "appointmentType": "General Consultation",
+        "doctor": "Dr. Nick Fury",
+        "checkup": {
+            "systolic": "130",
+            "diastolic": "90",
+            "cholesterol": "Above Normal",
+            "glucose": "Above Normal"
+        },
+        "remarks": "The patient has been advised a new diet and exercise plan.",
+        "files": [],
+        "diagnosis": ""
+    },
+    {
+        "date": "1/6/20",
+        "time": "10:00",
+        "location": "Adelaide Uni Health Practice, Adelaide, SA 5000",
+        "appointmentType": "Chest X-Ray",
+        "doctor": "Dr. Nick Fury",
+        "checkup": {},
+        "remarks": "The patient has been advised to continue with the new diet and exercise plan.",
+        "files": ["https://prod-images-static.radiopaedia.org/images/157210/332aa0c67cb2e035e372c7cb3ceca2_jumbo.jpg"],
+        "diagnosis": "The X-Ray shows no sign of disease."
+    }
+]
