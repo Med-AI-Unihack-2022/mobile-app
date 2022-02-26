@@ -42,9 +42,13 @@ class MyApp extends StatelessWidget {
       routes: {
         '/': (context) => StateCheck(),
         '/home': (context) => const Home(),
+<<<<<<< HEAD
         '/settings': (context) => OnboardingPage(),
         '/dashboard': (context) => Dashboard(),
         '/qr': (context) => QRCodePage(),
+=======
+        '/onboarding': (context) => const OnboardingPage(),
+>>>>>>> Done the mediation report and prescription screens
       },
     );
   }

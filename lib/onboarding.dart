@@ -5,7 +5,7 @@ import 'package:medbuddy/navbar.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class OnboardingPage extends StatefulWidget {
-  OnboardingPage({Key? key}) : super(key: key);
+  const OnboardingPage({Key? key}) : super(key: key);
 
   @override
   State<OnboardingPage> createState() => _OnboardingPageState();

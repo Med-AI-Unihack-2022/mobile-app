@@ -15,11 +15,25 @@ class SignUp extends StatefulWidget {
 class _SignUpState extends State<SignUp> {
   @override
   Widget build(BuildContext context) {
+<<<<<<< HEAD
     return Scaffold(
       appBar: AppBar(
         title: Title(
           color: Colors.red,
           child: const Text("Sign Up"),
+=======
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(
+          title: Title(
+            color: Colors.red,
+            child: const Text("Sign Up"),
+          ),
+          leading: IconButton(
+            icon: const Icon(Icons.arrow_back),
+            onPressed: () => Navigator.pop(context),
+          ),
+>>>>>>> Done the mediation report and prescription screens
         ),
         leading: IconButton(
           icon: Icon(Icons.arrow_back),
