@@ -3,8 +3,10 @@ import 'package:flutter/services.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:medbuddy/dashboard.dart';
 import 'package:medbuddy/home.dart';
+import 'package:medbuddy/med_report/med_reports.dart';
 import 'package:medbuddy/medicalRecords.dart';
 import 'package:medbuddy/onboarding.dart';
+import 'package:medbuddy/prescriptions/prescriptions.dart';
 import 'package:medbuddy/qrcode.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -56,13 +58,17 @@ class NavDrawer extends StatelessWidget {
             onTap: () => {
               Navigator.of(context).pop(),
               Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => MedicalRecords()))
+                  MaterialPageRoute(builder: (context) => MedReports()))
             },
           ),
           ListTile(
             leading: const Icon(Icons.border_color),
             title: const Text('Prescriptions'),
-            onTap: () => {Navigator.of(context).pop()},
+            onTap: () => {
+              Navigator.of(context).pop(),
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => Prescriptions()))
+            },
           ),
           ListTile(
             leading: const Icon(Icons.qr_code),

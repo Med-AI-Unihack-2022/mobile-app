@@ -4,7 +4,9 @@ import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:medbuddy/StateCheck.dart';
 import 'package:medbuddy/dashboard.dart';
 import 'package:medbuddy/home.dart';
+import 'package:medbuddy/med_report/med_reports.dart';
 import 'package:medbuddy/onboarding.dart';
+import 'package:medbuddy/prescriptions/prescriptions.dart';
 import 'package:medbuddy/qrcode.dart';
 
 void main() {
@@ -42,13 +44,12 @@ class MyApp extends StatelessWidget {
       routes: {
         '/': (context) => StateCheck(),
         '/home': (context) => const Home(),
-<<<<<<< HEAD
         '/settings': (context) => OnboardingPage(),
         '/dashboard': (context) => Dashboard(),
         '/qr': (context) => QRCodePage(),
-=======
         '/onboarding': (context) => const OnboardingPage(),
->>>>>>> Done the mediation report and prescription screens
+        '/medicalRecords': (context) => const MedReports(),
+        '/prescriptions': (context) => const Prescriptions(),
       },
     );
   }

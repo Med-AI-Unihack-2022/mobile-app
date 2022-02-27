@@ -14,87 +14,97 @@ class PresDesc extends StatefulWidget {
 class _PresDescState extends State<PresDesc> {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(
-          backgroundColor: Colors.lightBlue,
-          title: Text(
-            widget.profile.name,
-          ),
-          leading: IconButton(
-            icon: const Icon(Icons.arrow_back),
-            onPressed: () => Navigator.pop(context),
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        centerTitle: true,
+        title: Text(
+          widget.profile.name,
+          style: TextStyle(
+            color: Colors.black,
           ),
         ),
-        body: Center(
-          child: Column(
-            children: [
-              Text(
-                "Indication: " + widget.profile.desc,
-                textAlign: TextAlign.center,
-                style: const TextStyle(
-                  fontSize: 20,
-                  fontFamily: "Lato",
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back),
+          color: Colors.black,
+          onPressed: () => Navigator.pop(context),
+        ),
+      ),
+      body: Center(
+        child: Column(
+          children: [
+            Text(
+              "Indication: " + widget.profile.desc,
+              textAlign: TextAlign.center,
+              style: const TextStyle(
+                fontSize: 20,
+                fontFamily: "Lato",
+              ),
+            ),
+            Text(
+              "Dosage: " + widget.profile.schedule,
+              textAlign: TextAlign.center,
+              style: const TextStyle(
+                fontSize: 20,
+                fontFamily: "Lato",
+              ),
+            ),
+            Text(
+              "MFG date: " + widget.profile.startDate,
+              textAlign: TextAlign.center,
+              style: const TextStyle(
+                fontSize: 20,
+                fontFamily: "Lato",
+              ),
+            ),
+            Text(
+              "EXP date: " + widget.profile.endDate,
+              textAlign: TextAlign.center,
+              style: const TextStyle(
+                fontSize: 20,
+                fontFamily: "Lato",
+              ),
+            ),
+            Image.network(
+              widget.profile.image,
+            ),
+            SizedBox(
+              child: ElevatedButton(
+                style: ButtonStyle(
+                  backgroundColor: MaterialStateProperty.all(Colors.black),
                 ),
-              ),
-              Text(
-                "Dosage: " + widget.profile.schedule,
-                textAlign: TextAlign.center,
-                style: const TextStyle(
-                  fontSize: 20,
-                  fontFamily: "Lato",
-                ),
-              ),
-              Text(
-                "MFG date: " + widget.profile.startDate,
-                textAlign: TextAlign.center,
-                style: const TextStyle(
-                  fontSize: 20,
-                  fontFamily: "Lato",
-                ),
-              ),
-              Text(
-                "EXP date: " + widget.profile.endDate,
-                textAlign: TextAlign.center,
-                style: const TextStyle(
-                  fontSize: 20,
-                  fontFamily: "Lato",
-                ),
-              ),
-              Image.network(
-                widget.profile.image,
-              ),
-              SizedBox(
-                child: ElevatedButton(
-                  onPressed: () {},
-                  child: const Text(
-                    "Set reminder",
-                    style: TextStyle(
-                      fontFamily: "Lato",
-                      fontSize: 15,
-                    ),
+                onPressed: () {},
+                child: const Text(
+                  "Set reminder",
+                  style: TextStyle(
+                    fontFamily: "Lato",
+                    fontSize: 15,
+                    color: Colors.white,
                   ),
                 ),
-                width: 300,
-                height: 50,
               ),
-              SizedBox(
-                child: ElevatedButton(
-                  onPressed: () {},
-                  child: const Text(
-                    "Add to calendar",
-                    style: TextStyle(
-                      fontFamily: "Lato",
-                      fontSize: 15,
-                    ),
+              width: 300,
+              height: 50,
+            ),
+            SizedBox(
+              child: ElevatedButton(
+                 style: ButtonStyle(
+                  backgroundColor: MaterialStateProperty.all(Colors.black),
+                ),
+                onPressed: () {},
+                child: const Text(
+                  "Add to calendar",
+                  style: TextStyle(
+                    fontFamily: "Lato",
+                    fontSize: 15,
                   ),
                 ),
-                width: 300,
-                height: 50,
               ),
-            ],
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          ),
+              width: 300,
+              height: 50,
+            ),
+          ],
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         ),
       ),
     );
